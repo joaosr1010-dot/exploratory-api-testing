@@ -8,12 +8,12 @@ Endpoints relacionados a usuários.
 
 ## Endpoints testados
 
-GET /users
-GET /users/{id}
-POST /users
-PUT /users/{id}
-DELETE /users/{id}
-
+- GET /users
+- GET /users/{id}
+- POST /users
+- PUT /users/{id}
+- DELETE /users/{id}
+  
 ## Estratégia
 
 Durante os testes foram realizadas explorações como:
