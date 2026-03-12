@@ -1,13 +1,16 @@
 # Bug Report
 
 ## Título
-API permite criação de usuário com payload vazio
+
+API aceita criação de usuário com payload vazio
 
 ## Endpoint
+
 POST /users
 
 ## Descrição
-Durante os testes exploratórios foi identificado que a API permite a criação de um usuário mesmo quando o payload enviado está vazio.
+
+Durante os testes exploratórios foi identificado que a API aceita a criação de um usuário mesmo quando o payload enviado está vazio.
 
 ## Passos para reproduzir
 
@@ -16,12 +19,12 @@ Durante os testes exploratórios foi identificado que a API permite a criação 
 
 ## Resultado esperado
 
-A API deveria retornar erro informando que campos obrigatórios estão ausentes.
+A API deveria retornar erro informando que os campos obrigatórios estão ausentes.
 
 ## Resultado obtido
 
-API retorna status 201 e cria registro.
+A API retorna status 201 simulando criação do recurso.
 
 ## Severidade
 
-Média
+Baixa
