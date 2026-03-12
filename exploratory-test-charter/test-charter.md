@@ -1,25 +1,28 @@
 # Exploratory Test Charter
 
 ## Objetivo
-Explorar o comportamento da API ReqRes identificando possíveis falhas, respostas inesperadas ou inconsistências.
+
+Explorar o comportamento da API JSONPlaceholder através de testes exploratórios, buscando identificar respostas inesperadas, comportamentos inconsistentes e possíveis falhas.
+
+## Ferramenta utilizada
+
+Postman
+
+## API utilizada
+
+https://jsonplaceholder.typicode.com
 
 ## Área explorada
+
 Endpoints relacionados a usuários.
 
-## Endpoints testados
-
-- GET /users
-- GET /users/{id}
-- POST /users
-- PUT /users/{id}
-- DELETE /users/{id}
-  
-## Estratégia
+## Estratégia de exploração
 
 Durante os testes foram realizadas explorações como:
 
-- envio de IDs inexistentes
 - envio de payloads inválidos
-- ausência de campos obrigatórios
-- alteração de tipos de dados
 - envio de payload vazio
+- utilização de IDs inexistentes
+- utilização de endpoints inexistentes
+- envio de campos inesperados
+- alteração de tipos de dados
