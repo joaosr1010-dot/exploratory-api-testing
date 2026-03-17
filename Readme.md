@@ -52,10 +52,15 @@ POST /users
 → Esperado: 201 Created  
 
 Exemplo de payload:
+
 {
+
   "name": "João",
+  
   "username": "teste",
+  
   "email": "teste@email.com"
+
 }
 
 PUT /users/1  
@@ -79,18 +84,28 @@ POST /users (payload vazio)
 
 POST /users (tipo inválido)  
 Payload:
+
 {
+
   "name": 12345
+
 }
+
 → Observado: API não valida tipo de dado  
 
 POST /users (campos extras)  
 Payload:
+
 {
+ 
   "name": "João",
+  
   "age": 999,
+  
   "admin": true
+
 }
+
 → Observado: API aceita campos extras  
 
 GET /userss  
