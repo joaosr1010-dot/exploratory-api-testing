@@ -4,7 +4,8 @@ Este projeto foi desenvolvido como parte dos meus estudos para atuar como QA (Qu
 
 O objetivo é demonstrar na prática a execução de testes em API, com foco principal em **testes exploratórios**, analisando o comportamento da API em cenários positivos, negativos e inesperados.
 
-API utilizada:
+## 🌐 API utilizada
+
 https://jsonplaceholder.typicode.com
 
 ---
@@ -142,21 +143,23 @@ Endpoint inexistente
 
 ## 🧠 Observações importantes
 
-- A API não possui validações robustas
-- Permite envio de dados inválidos
-- Aceita campos não previstos
-- Retorna corretamente 404 para endpoints inexistentes
+Durante os testes exploratórios, foram identificados alguns comportamentos relevantes:
+
+- A API não possui validações robustas para tipos de dados
+- Permite envio de dados inválidos sem retorno de erro
+- Aceita campos não previstos no payload (ausência de validação de schema)
+- Retorna corretamente status 404 para endpoints inexistentes
+
+Esses comportamentos indicam que a API possui foco mais demonstrativo do que produtivo, não sendo adequada para cenários que exigem validação rigorosa de dados.
 
 ---
 
-## 📂 Estrutura do projeto
-
 README.md  
-exploratory-test-charter  
-test-notes  
-bug-report  
-postman-collection  
-evidences  
+├── exploratory-test-charter  
+├── test-notes  
+├── bug-report  
+├── postman-collection  
+└── evidences  
 
 ---
 
