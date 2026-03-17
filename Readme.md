@@ -1,251 +1,172 @@
-# Exploratory API Testing – JSONPlaceholder
+# 🧪 Exploratory API Tests - JSONPlaceholder
 
-Este projeto foi desenvolvido como parte dos meus estudos em Quality Assurance (QA) com o objetivo de praticar **testes exploratórios em APIs REST**.
+Este projeto foi desenvolvido como parte dos meus estudos para atuar como QA (Quality Assurance).
 
-Os testes foram executados utilizando o Postman na API pública JSONPlaceholder, explorando diferentes cenários positivos e negativos para observar o comportamento das respostas da API.
+O objetivo é demonstrar na prática a execução de testes em API, com foco principal em **testes exploratórios**, analisando o comportamento da API em cenários positivos, negativos e inesperados.
 
----
-
-# 🎯 Objetivo
-
-Praticar:
-
-- Testes exploratórios em APIs
-- Execução de requisições HTTP
-- Validação de respostas da API
-- Testes positivos e negativos
-- Documentação de testes
-
----
-
-# 🛠 Ferramentas utilizadas
-
-- Postman
-- GitHub
-
----
-
-# 🌐 API utilizada
-
+API utilizada:
 https://jsonplaceholder.typicode.com
 
 ---
 
-# 🔎 Endpoints testados
+## 🎯 Objetivo do projeto
 
-## Listar usuários
-
-GET /users
-
-Status esperado  
-200 OK
-
-Descrição  
-Retorna a lista de usuários cadastrados.
+- Validar o comportamento da API
+- Explorar cenários não previstos
+- Identificar falhas e comportamentos inesperados
+- Praticar análise crítica de respostas
 
 ---
 
-## Buscar usuário por ID
+## 🧪 Tipos de testes realizados
 
-GET /users/1
+### ✔ Testes Funcionais
+- Listagem de usuários
+- Busca de usuário por ID
+- Criação de usuário
+- Atualização de usuário
+- Exclusão de usuário
 
-Status esperado  
-200 OK
-
-Descrição  
-Retorna os dados do usuário correspondente ao ID informado.
-
----
-
-## Buscar usuário inexistente
-
-GET /users/9999
-
-Status esperado  
-404 Not Found
-
-Descrição  
-Valida o comportamento da API ao solicitar um usuário que não existe.
+### 🔎 Testes Exploratórios
+- Usuário inexistente
+- ID inválido
+- Payload vazio
+- Tipo de dado inválido
+- Campos extras
+- Endpoint inexistente
 
 ---
 
-## Criar usuário
+## 🔎 Endpoints testados
 
-POST /users
+### 🟢 Funcionais
 
-Payload utilizado
+GET /users  
+→ Esperado: 200 OK  
 
+GET /users/1  
+→ Esperado: 200 OK  
+
+POST /users  
+→ Esperado: 201 Created  
+
+Exemplo de payload:
 {
-
-"name": "João",
-
-"email": "joao@email.com"
-
+  "name": "João",
+  "username": "teste",
+  "email": "teste@email.com"
 }
 
-Status esperado  
-201 Created
+PUT /users/1  
+→ Esperado: 200 OK  
 
-Descrição  
-Simula a criação de um novo usuário.
-
----
-
-## Criar usuário com payload vazio
-
-POST /users
-
-Payload utilizado
-
-{}
-
-Resultado observado  
-201 Created
-
-Observação  
-A API aceita payload vazio e simula a criação do recurso.  
-Em uma API real seria esperado erro de validação para campos obrigatórios.
+DELETE /users/1  
+→ Esperado: 200 OK  
 
 ---
 
-## Criar usuário com tipo de dado inválido
+### 🔍 Exploratórios
 
-POST /users
+GET /users/9999  
+→ Esperado: 404 Not Found  
 
-Payload utilizado
+GET /users/abc  
+→ Verificar comportamento para ID inválido  
 
+POST /users (payload vazio)  
+→ Observado: API aceita requisição sem validação  
+
+POST /users (tipo inválido)  
+Payload:
 {
-
-"name": 12345
-
+  "name": 12345
 }
+→ Observado: API não valida tipo de dado  
 
-Resultado observado  
-201 Created
-
-Observação  
-A API aceita o payload mesmo com tipo de dado inválido.  
-Isso ocorre porque a JSONPlaceholder é uma API de testes e não realiza validação real de dados.
-
----
-
-## Criar usuário com campos extras
-
-POST /users
-
-Payload utilizado
-
+POST /users (campos extras)  
+Payload:
 {
-
-"name": "João",
-
-"age": 999,
-
-"admin": true
-
+  "name": "João",
+  "age": 999,
+  "admin": true
 }
+→ Observado: API aceita campos extras  
 
-Resultado observado  
-201 Created
-
-Observação  
-A API aceita campos adicionais no payload e simula a criação do usuário.  
-Em uma API real seria esperado que campos inesperados fossem ignorados ou retornassem erro de validação.
+GET /userss  
+→ Esperado: 404 Not Found  
 
 ---
 
-## Atualizar usuário
+## 📸 Evidências dos testes
 
-PUT /users/1
+### 🧩 Estrutura da Collection
+![Estrutura](evidences/01-postman-collection-structure.PNG)
 
-Payload utilizado
-
-{
-
-"name": "João QA"
-
-}
-
-Status esperado  
-200 OK
-
-Descrição  
-Simula a atualização de um usuário existente.
 
 ---
 
-## Excluir usuário
 
-DELETE /users/1
+### 🟢 Testes Funcionais
 
-Status esperado  
-200 OK ou 204 No Content
+Listagem de usuários  
+![GET Users](evidences/02-get-users.png)
 
-Descrição  
-Simula a exclusão de um usuário.
+Criação de usuário  
+![POST Users](evidences/03-create-user.png)
 
----
-
-## ID inválido
-
-GET /users/abc
-
-Resultado observado  
-404 Not Found
-
-Descrição  
-Teste para verificar o comportamento da API ao receber um ID inválido.
 
 ---
 
-## Endpoint inexistente
 
-GET /userss
+### 🔎 Testes Exploratórios
 
-Resultado observado  
-404 Not Found
+Usuário inexistente  
+![User Not Found](evidences/04-user-not-found.png)
 
-Descrição  
-Teste para verificar o comportamento da API ao acessar um endpoint inexistente.
+ID inválido  
+![Invalid ID](evidences/05-invalid-id.png)
 
----
+Payload vazio  
+![Empty Payload](evidences/06-empty-payload.png)
 
-# 📂 Estrutura do projeto
+Tipo de dado inválido  
+![Invalid Data Type](evidences/07-invalid-data-type.png)
 
-README.md → descrição do projeto  
-exploratory-test-charter → planejamento do teste exploratório  
-test-notes → registro dos testes executados  
-bug-report → exemplo de bug report  
-postman-collection → coleção utilizada no Postman  
-evidences → capturas de tela da execução dos testes
+Campos extras  
+![Extra Fields](evidences/08-extra-fields.png)
 
----
-
-# 🧪 Tipos de testes realizados
-
-Durante a execução deste projeto foram aplicados diferentes tipos de testes para explorar o comportamento da API:
-
-- Testes positivos → validação de requisições válidas e funcionamento esperado dos endpoints
-- Testes negativos → envio de dados inválidos ou requisições incorretas para observar como a API responde
-- Testes exploratórios → exploração do comportamento da API em diferentes cenários sem roteiro rígido
-
-Os testes foram executados utilizando o Postman na API pública JSONPlaceholder.
+Endpoint inexistente  
+![Invalid Endpoint](evidences/09-invalid-endpoint.png)
 
 ---
 
-# 📚 Aprendizados
+## 🧠 Observações importantes
 
-Durante este projeto foi possível praticar:
+- A API não possui validações robustas
+- Permite envio de dados inválidos
+- Aceita campos não previstos
+- Retorna corretamente 404 para endpoints inexistentes
 
-- Testes exploratórios em APIs
-- Utilização do Postman
-- Análise de respostas HTTP
-- Execução de cenários positivos e negativos
+---
+
+## 📂 Estrutura do projeto
+
+README.md  
+exploratory-test-charter  
+test-notes  
+bug-report  
+postman-collection  
+evidences  
+
+---
+
+## 🚀 Considerações finais
+
+Embora testes funcionais tenham sido realizados para validação básica, o foco principal deste projeto foi a aplicação de **testes exploratórios em API**.
+
+Este projeto demonstra minha capacidade de:
+
+- Pensamento crítico
+- Criação de cenários de teste
+- Análise de comportamento de APIs
 - Documentação de testes
-- Registro de possíveis inconsistências no comportamento da API
-
----
-
-# 👨‍💻 Autor
-
-Projeto desenvolvido como parte dos meus estudos para atuar como **QA Jr (Quality Assurance)**.
