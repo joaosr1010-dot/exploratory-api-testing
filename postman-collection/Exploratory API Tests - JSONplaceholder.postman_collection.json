@@ -1,0 +1,381 @@
+{
+  "info": {
+    "_postman_id": "8ec8a5ac-be20-45f2-91fd-bba090d82a82",
+    "name": "Exploratory API Tests - JSONplaceholder",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52879935",
+    "_collection_link": "https://go.postman.co/collection/52879935-8ec8a5ac-be20-45f2-91fd-bba090d82a82?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Functional tests",
+      "item": [
+        {
+          "name": "Listar usuários",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "description": "Retorna a lista de usuários cadastrados."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar usuário por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users/1?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "description": "Retorna os dados do usuário correspondente ao ID informado."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar usuário",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n\"name\": \"João\",\r\n\r\n\"email\": \"joao@email.com\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "description": "Simula a criação de um novo usuário."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar usuário",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n\"name\": \"João QA\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users/1?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "description": "Simula a atualização de um usuário existente."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Excluir usuário",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n\"name\": \"João QA\"\r\n\r\n}"
+            },
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users/2?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users",
+                "2"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "description": "Simula a exclusão de um usuário."
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Exploratory tests",
+      "item": [
+        {
+          "name": "Buscar usuário inexistente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users/9999?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users",
+                "9999"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "description": "Valida o comportamento da API ao solicitar um usuário que não existe."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ID Inválido",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users/abc?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users",
+                "abc"
+              ],
+              "query": [
+                {
+                  "key": null,
+                  "value": null,
+                  "description": "Teste exploratório para verificar o comportamento da API ao receber um ID inválido (valor não numérico).",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar usuário com payload vazio",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "description": "A API aceita payload vazio e simula a criação do recurso. Em uma API real seria esperado erro de validação para campos obrigatórios."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar usuário com tipo de dado inválido",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"12345\"\r\n \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "description": "A API aceita o payload mesmo com tipo de dado inválido. Isso ocorre porque a JSONPlaceholder é uma API de testes e não realiza validação real de dados.\n\n"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar usuário com campos extras",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Joaquim\",\r\n  \"username\": \"teste\",\r\n  \"email\": \"teste@email.com\",\r\n  \"age\": \"999\",\r\n  \"admin\": \"True\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/users?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "description": "A API aceita campos adicionais no payload e simula a criação do usuário. Em uma API real seria esperado que campos inesperados fossem ignorados ou retornassem erro de validação."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Endpoint inexistente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://jsonplaceholder.typicode.com/userss?",
+              "protocol": "https",
+              "host": [
+                "jsonplaceholder",
+                "typicode",
+                "com"
+              ],
+              "path": [
+                "userss"
+              ],
+              "query": [
+                {
+                  "key": null,
+                  "value": null,
+                  "description": "Teste para verificar o comportamento da API ao acessar um endpoint inexistente.",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
