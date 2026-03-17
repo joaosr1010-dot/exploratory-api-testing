@@ -170,3 +170,28 @@ Este projeto demonstra minha capacidade de:
 - Criação de cenários de teste
 - Análise de comportamento de APIs
 - Documentação de testes
+
+---
+
+## 📚 Aprendizados
+
+Durante a execução deste projeto de testes exploratórios em API utilizando o Postman, foi possível obter aprendizados importantes relacionados à análise de comportamento de APIs e identificação de falhas.
+
+Principais aprendizados:
+
+- A API testada não realiza validação adequada de tipos de dados, permitindo o envio de informações inconsistentes sem retorno de erro.
+- Foi observado que a API aceita payloads com campos extras, o que pode indicar ausência de validação de schema no backend.
+- Requisições com payload vazio ainda retornam sucesso em alguns casos, evidenciando fragilidade na validação de dados obrigatórios.
+- Endpoints com IDs inválidos ou inexistentes retornam respostas que nem sempre são padronizadas, o que pode dificultar o tratamento de erros no lado do cliente.
+- A prática de testes exploratórios permite identificar cenários não previstos inicialmente, aumentando a cobertura de testes.
+
+Além disso, este projeto contribuiu para o desenvolvimento das seguintes habilidades:
+
+- Criação e organização de coleções no Postman
+- Estruturação de testes funcionais e exploratórios
+- Documentação de cenários de teste
+- Elaboração de bug reports
+- Análise crítica do comportamento de APIs
+
+
+Este projeto reforçou a importância de validar não apenas os fluxos esperados, mas também cenários inesperados que podem impactar a qualidade e a confiabilidade de uma API.
